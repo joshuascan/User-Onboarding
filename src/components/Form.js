@@ -13,4 +13,55 @@ export default function Form(props) {
         const valueToUse = type === 'checkbox' ? checked : value
         change(name, valueToUse)
     }
+
+    return (
+        <form>
+            <div className='form-group submit'>
+                <button disabled={disabled}>Submit</button>
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                </div>
+            </div>
+
+            <div className='form-group inputs'>
+                <label>Name
+                    <input
+                    type='text'
+                    name='name'
+                    value={values.name}
+                    onChange={onChange}
+                    />
+                </label>
+
+                <label>Email
+                    <input
+                    type='text'
+                    name='email'
+                    value={values.email}
+                    onChange={onChange}
+                    />
+                </label>
+
+                <label>Password
+                    <input
+                    type='text'
+                    name='password'
+                    value={values.password}
+                    onChange={onChange}
+                    />
+                </label>
+
+                <label>Agree to Terms of Service
+                    <input
+                    type='checkbox'
+                    name='termsOfService'
+                    checked={values.termsOfService}
+                    onChange={onChange}
+                    />
+                </label>
+            </div>
+        </form>
+    )
 }
