@@ -44,7 +44,7 @@ function App() {
     }
 
   return (
-    <div className="container">
+    <div className="container app">
         <h1>New User Sign Up</h1>
         <Form 
         values={formValues}

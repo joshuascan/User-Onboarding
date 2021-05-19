@@ -1,4 +1,4 @@
-import React from 'core-js/library/fn/reflect/es7/metadata'
+import React from 'react'
 
 export default function Form(props) {
     const { values, submit, change, disabled, errors } = props
@@ -16,16 +16,6 @@ export default function Form(props) {
 
     return (
         <form className='form container' onSubmit={onSubmit}>
-            <div className='form-group submit'>
-
-                <button disabled={disabled}>Submit</button>
-                
-                <div className='errors'>
-                    <div>{errors.name}</div>
-                    <div>{errors.email}</div>
-                    <div>{errors.password}</div>
-                </div>
-            </div>
 
             <div className='form-group inputs'>
                 <label>Name
@@ -48,7 +38,7 @@ export default function Form(props) {
 
                 <label>Password
                     <input
-                    type='text'
+                    type='password'
                     name='password'
                     value={values.password}
                     onChange={onChange}
@@ -63,6 +53,17 @@ export default function Form(props) {
                     onChange={onChange}
                     />
                 </label>
+                
+            <div className='form-group submit'>
+
+                <button disabled={disabled}>Submit</button>
+
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                </div>
+            </div>
             </div>
         </form>
     )
