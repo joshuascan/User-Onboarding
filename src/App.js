@@ -22,6 +22,7 @@ const initialUsers = []
 const initialDisabled = true
 
 
+
 function App() {
 
     const [users, setUsers] = useState(initialUsers)
@@ -29,9 +30,24 @@ function App() {
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
+    const formSubmit = () => {
+        const newUser = {
+            name: formValues.name.trim(),
+            email: formValues.email.trim(),
+            password: formValues.password.trim(),
+            termsOfService: formValues.termsOfService,
+        }
+    }
+
   return (
-    <div className="App">
-        {/* <Form /> */}
+    <div className="container">
+        <h1>New User Sign Up</h1>
+        <Form 
+        values={formValues}
+        submit={formSubmit}
+        disabled={disabled}
+        errors={formErrors}
+        />
     </div>
   );
 }
