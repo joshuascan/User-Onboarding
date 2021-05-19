@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import Form from './components/Form'
+import User from './components/User'
 import axios from 'axios'
 import * as yup from 'yup'
 import schema from './validation/formSchema'
@@ -35,6 +35,7 @@ function App() {
         axios.post('https://reqres.in/api/users', newUser)
             .then(res => {
                 setUsers([res.data, ...users])
+                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -63,7 +64,12 @@ function App() {
             password: formValues.password.trim(),
             termsOfService: formValues.termsOfService,
         }
+        postNewUser(newUser)
     }
+
+    useEffect(() => {
+        schema.isValid(formValues).then(valid => setDisabled(!valid))
+    })
 
   return (
     <div className="container app">
@@ -75,6 +81,13 @@ function App() {
         disabled={disabled}
         errors={formErrors}
         />
+        <pre>{JSON.stringify(users)}</pre>
+        {users.map(user => {
+            return (
+                <User key={user.id} details={user} />
+            )    
+        })
+        }
     </div>
   );
 }

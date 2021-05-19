@@ -79,6 +79,11 @@ body{
 
  form {
      background-color: rgb(33, 49, 121);
-     color: rgb(170, 85, 54);
+     color: rgb(211, 107, 69);
      font-weight: bold;
+ }
+
+ .user {
+     background-color: rgb(64, 82, 165);
+     color: white;
  }
