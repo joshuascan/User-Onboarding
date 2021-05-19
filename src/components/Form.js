@@ -15,9 +15,11 @@ export default function Form(props) {
     }
 
     return (
-        <form>
+        <form className='form container' onSubmit={onSubmit}>
             <div className='form-group submit'>
+
                 <button disabled={disabled}>Submit</button>
+                
                 <div className='errors'>
                     <div>{errors.name}</div>
                     <div>{errors.email}</div>
