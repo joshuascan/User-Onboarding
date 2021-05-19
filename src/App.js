@@ -30,6 +30,10 @@ function App() {
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
+    const inputChange = (name, value) => {
+        setFormValues({ ...formValues, [name]: value })
+    }
+
     const formSubmit = () => {
         const newUser = {
             name: formValues.name.trim(),
@@ -44,6 +48,7 @@ function App() {
         <h1>New User Sign Up</h1>
         <Form 
         values={formValues}
+        change={inputChange}
         submit={formSubmit}
         disabled={disabled}
         errors={formErrors}
