@@ -53,4 +53,9 @@ describe('User Sign-up App', () => {
         })
     })
 
+    describe('Checking form validation', () => {
+        it('can check if an input is left empty', () => {
+            submitBtn().should('be.disabled')
+        })
+    })
 })
