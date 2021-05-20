@@ -7,6 +7,7 @@ describe('User Sign-up App', () => {
     const emailInput = () => cy.get('input[name=email]')
     const passwordInput = () => cy.get('input[name=password]')
     const checkboxInput = () => cy.get('input[name=termsOfService]')
+    const submitBtn = () => cy.get('button[id=submitBtn]')
 
     it('the proper elements are showing', () => {
         nameInput().should('exist')
@@ -39,6 +40,16 @@ describe('User Sign-up App', () => {
                     .check()
                     .should('be.checked')
             })
+        })
+    })
+
+    describe('Submitting form data', () => {
+        it('can submit the form data', () => {
+            nameInput().type('Button test')
+            emailInput().type('button@test.com')
+            passwordInput().type('secretbutton')
+            checkboxInput().check()
+            submitBtn().click()
         })
     })
 
